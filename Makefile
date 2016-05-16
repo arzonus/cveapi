@@ -6,9 +6,6 @@ build:
 	echo "build arzonus cveapi image"
 	docker build -t cveapi .
 
-deps:
-	docker build -t cveapi:deps -f ./Dockerfile.deps .
-
 clean:
 	echo "remove arzonus cveapi image"
 	docker rmi -f arzonus/cveapi

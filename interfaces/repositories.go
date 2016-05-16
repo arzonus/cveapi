@@ -74,6 +74,7 @@ func (repo *DBCVERepo) GetListByProduct(product d.Product) []d.CVE {
 	query := fmt.Sprintf("SELECT c.cve_id, c.summary FROM cves AS c RIGHT JOIN (SELECT cve_id FROM cpes_cves AS cc LEFT JOIN products AS p ON cc.cpe_id=p.cpe_id WHERE p.name='%v' AND p.product_version='%v') AS b ON b.cve_id=c.cve_id",
 		product.Name, product.Version)
 
+	repo.Logger.Info(query)
 	row := repo.dbHandler.Query(query)
 
 	var cves []d.CVE
