@@ -5,8 +5,8 @@ ENV GOROOT=/usr/lib/go \
     GOBIN=/go/bin \
     PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
-WORKDIR /opt/src/github.com/arzonus/cveapi
-ADD . /opt/src/github.com/arzonus/cveapi
+WORKDIR /go/src/github.com/arzonus/cveapi
+ADD . /go/src/github.com/arzonus/cveapi
 
 RUN apk add -U git go && \
     go get  && \
