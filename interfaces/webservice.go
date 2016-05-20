@@ -28,7 +28,13 @@ func (handler WebserviceHandler) GetListCVEByProduct(res http.ResponseWriter, re
 		Version: version,
 	}
 	cves := handler.Interactor.GetListCVEByProduct(product)
-	data, err := json.Marshal(cves)
+
+	type jCVE struct {
+		CVEs []d.CVE
+	}
+
+	data, err := json.Marshal(jCVE{CVEs: cves})
+
 	if err != nil {
 		handler.Logger.Info(err)
 	}

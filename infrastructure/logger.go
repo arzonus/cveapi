@@ -11,7 +11,7 @@ func (logger Logger) Log(args ...interface{}) {
 }
 
 func (logger Logger) Error(args ...interface{}) {
-	log.Panic(args)
+	log.Error(args)
 }
 
 func (logger Logger) Fatal(args ...interface{}) {
