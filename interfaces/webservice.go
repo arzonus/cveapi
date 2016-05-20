@@ -36,7 +36,7 @@ func (handler WebserviceHandler) GetListCVEByProduct(res http.ResponseWriter, re
 	}
 
 	data, err := json.Marshal(jCVE{CVEs: cves})
-	handler.Logger.Info(data)
+	handler.Logger.Info(cves)
 
 	if err != nil {
 		handler.Logger.Info(err)
