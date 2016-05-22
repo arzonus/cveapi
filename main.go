@@ -50,7 +50,7 @@ func main() {
 		cli.StringFlag{
 			EnvVar:      "CVA_START_YEAR",
 			Name:        "start-year",
-			Value:       "2016",
+			Value:       "2003",
 			Usage:       "Set start year",
 			Destination: &STARTYEAR,
 		},
