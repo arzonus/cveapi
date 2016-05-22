@@ -7,21 +7,21 @@ import (
 type Logger struct{}
 
 func (logger Logger) Log(args ...interface{}) {
-	log.Info(args)
+	log.Info("CVA: ", args)
 }
 
 func (logger Logger) Error(args ...interface{}) {
-	log.Error(args)
+	log.Error("CVA: ", args)
 }
 
 func (logger Logger) Fatal(args ...interface{}) {
-	log.Fatal(args)
+	log.Fatal("CVA: ", args)
 }
 
 func (logger Logger) Debug(args ...interface{}) {
-	log.Debug(args)
+	log.Debug("CVA: ", args)
 }
 
 func (logger Logger) Info(args ...interface{}) {
-	log.Info(args)
+	log.Info("CVA: ", args)
 }

@@ -29,25 +29,23 @@ func (inter *Interactor) PopulateDB(data NVDData) {
 	guard := make(chan struct{}, maxGos)
 
 	inter.Logger.Info("Start send CVE Info")
-	lenCVEs := len(data.CVEs)
-	lenProds := len(data.Products)
-	for i, v := range data.CVEs {
+	for _, v := range data.CVEs {
 		guard <- struct{}{}
 		go func(cve d.CVE) {
 			inter.SaveCVE(cve)
 			<-guard
 		}(v)
-		inter.Logger.Info("Left CVE: ", lenCVEs-i)
+		inter.Logger.Info("CVE: ", v.Id)
 	}
 	inter.Logger.Info("Start send Product Info")
 
-	for i, v := range data.Products {
+	for _, v := range data.Products {
 		guard <- struct{}{}
 		go func(product d.Product) {
 			inter.SaveProduct(product)
 			<-guard
 		}(v)
-		inter.Logger.Info("Left Product: ", lenProds-i)
+		inter.Logger.Info("Product: ", v.Name, v.Version)
 	}
 }
 

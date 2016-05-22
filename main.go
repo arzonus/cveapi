@@ -36,7 +36,7 @@ func main() {
 		cli.StringFlag{
 			EnvVar:      "CVA_DB_MSSQL",
 			Name:        "db-mssql",
-			Value:       "",
+			Value:       "server=lab-eu-lastbackend.database.windows.net;user id=lastbackend;password=fw9UJEfbpFijdlA2YDk8;database=db-00-lab-eu;sslmode=disable",
 			Usage:       "Connection string for connect to MSSQL DB",
 			Destination: &MSSQLURI,
 		},
@@ -50,7 +50,7 @@ func main() {
 		cli.StringFlag{
 			EnvVar:      "CVA_START_YEAR",
 			Name:        "start-year",
-			Value:       "2003",
+			Value:       "2016",
 			Usage:       "Set start year",
 			Destination: &STARTYEAR,
 		},
@@ -105,7 +105,7 @@ func Initialize(c *cli.Context) {
 	extdataHandler.Interactor = Interactor
 
 	go HTTP(webserviceHandler)
-	//go Update(extdataHandler)
+	go Update(extdataHandler)
 
 	select {}
 

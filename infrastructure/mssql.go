@@ -16,8 +16,8 @@ func (handler *MSSQLHandler) Execute(statement string) {
 	handler.connect()
 	_, err := handler.Conn.Exec(statement)
 	if err != nil {
-		handler.Logger.Info(statement)
-		handler.Logger.Info(err)
+		handler.Logger.Error(statement)
+		handler.Logger.Error(err)
 	}
 
 }
@@ -26,7 +26,7 @@ func (handler *MSSQLHandler) Query(statement string) interfaces.Row {
 	handler.connect()
 	rows, err := handler.Conn.Query(statement)
 	if err != nil {
-		handler.Logger.Info(err)
+		handler.Logger.Error(err)
 		return new(MSSQLRow)
 	}
 	row := new(MSSQLRow)
@@ -41,7 +41,7 @@ func (handler *MSSQLHandler) connect() {
 		var err error
 		handler.Conn, err = sql.Open("mssql", handler.URI)
 		if err != nil {
-			handler.Logger.Info(err)
+			handler.Logger.Error(err)
 		}
 	}
 }

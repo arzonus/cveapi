@@ -52,7 +52,7 @@ type CPEData struct {
 func (handler *ExtdataHandler) PopulateDB() {
 	handler.Logger.Info("Populate Database")
 	handler.getNVDCPE()
-	//handler.getNVDCVE()
+	handler.getNVDCVE()
 	handler.Interactor.PopulateDB(handler.convNVDIntToNVDUse())
 	handler.Logger.Info("There was stoped")
 }
