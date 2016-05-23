@@ -105,7 +105,7 @@ func Initialize(c *cli.Context) {
 	extdataHandler.Interactor = Interactor
 
 	go HTTP(webserviceHandler)
-	go Update(extdataHandler)
+	//go Update(extdataHandler)
 
 	select {}
 
