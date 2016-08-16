@@ -3,7 +3,7 @@
 db:
 	bash ./prepareDB.sh
 deps:
-	go get
+	go get 
 
 run:
 	echo "run code"
