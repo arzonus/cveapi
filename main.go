@@ -36,7 +36,7 @@ func main() {
 		cli.StringFlag{
 			EnvVar:      "CVA_DB_MSSQL",
 			Name:        "db-mssql",
-			Value:       "server=lab-eu-lastbackend.database.windows.net;user id=lastbackend;password=fw9UJEfbpFijdlA2YDk8;database=db-00-lab-eu;sslmode=disable",
+			Value:       "",
 			Usage:       "Connection string for connect to MSSQL DB",
 			Destination: &MSSQLURI,
 		},
