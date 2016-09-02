@@ -1,7 +1,7 @@
-SERVER=lab-eu-lastbackend.database.windows.net
-USER=lastbackend
-PASS=fw9UJEfbpFijdlA2YDk8
-DB=db-00-lab-eu
+SERVER=
+USER=
+PASS=
+DB=
 
 echo "DROP DATABASES"
 tsql -S $SERVER -U $USER -P $PASS -D $DB <<EOF
